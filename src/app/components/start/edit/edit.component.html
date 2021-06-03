@@ -1,0 +1,5 @@
+
+<form *ngIf="currentBlog" (ngSubmit)="handleEdit(input, currentBlog)">
+    <input type="text" value="{{currentBlog.title}}" #input>
+    <button type="submit">Save</button>
+</form>

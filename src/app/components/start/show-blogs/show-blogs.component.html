@@ -1,0 +1,21 @@
+<p class="blog-title" *ngIf="blog">{{ blog.title }}</p>
+
+<span *ngIf="confirmDelete">
+  <span>Are you sure?</span>
+  <button (click)="handleDelete(blog)">Yes</button>
+  <button (click)="confirmDelete = false">No</button>
+</span>
+<div class="blog-buttons">
+ 
+  <button (click)="handlePosts(blog)" class="post-btn">
+    <i class="fas fa-long-arrow-alt-right"></i> Kolla inlägg
+  </button>
+  <button (click)="handleEdit(blog)" class="edit-btn"><i class="fas fa-edit"></i> Edit</button>
+  <button
+  *ngIf="!confirmDelete"
+  (click)="confirmDelete = true"
+  class="remove-btn"
+>
+  <i class="fas fa-times"></i> Ta bort
+</button>
+</div>

@@ -1,0 +1,23 @@
+.post-container {
+    flex-direction: column;
+    width: 40vw;
+
+    form {
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+
+        textarea {
+
+        }
+    }
+}
+
+
+.content {
+    max-width: 50vw;
+}
+
+.comments {
+cursor: pointer;
+}
