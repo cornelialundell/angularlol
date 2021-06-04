@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StartComponent } from './components/start/start.component';
-import { HttpClientModule, HttpClient} from '@angular/common/http';
 import { ShowBlogsComponent } from './components/start/show-blogs/show-blogs.component';
 import { CreateBlogComponent } from './components/start/create-blog/create-blog.component'
 import { FormsModule } from '@angular/forms';
@@ -15,6 +14,7 @@ import { CommentsComponent } from './components/comments/comments.component';
 import { CreateCommentComponent } from './components/comments/create-comment/create-comment.component';
 import { ShowCommentsComponent } from './components/comments/show-comments/show-comments.component';
 import { EditComponent } from './components/start/edit/edit.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -33,9 +33,8 @@ import { EditComponent } from './components/start/edit/edit.component';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     FormsModule,
-    HttpClient
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

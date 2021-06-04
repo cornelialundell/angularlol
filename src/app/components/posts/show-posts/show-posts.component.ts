@@ -1,6 +1,5 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
-import { Blog } from 'src/app/models/Blog';
 import { Posts } from 'src/app/models/Posts';
 import { BlogService } from 'src/app/services/blog/blog.service';
 import { PostService } from 'src/app/services/post/post.service';
@@ -18,16 +17,16 @@ export class ShowPostsComponent implements OnInit {
   edit: Boolean;
 
 
-  constructor( private router: Router,
+  constructor(private router: Router,
     private service: PostService,
     private activatedRoute: ActivatedRoute,
     private blogService: BlogService) { }
 
   ngOnInit(): void {
- 
-      this.commentsLength = this.post.comments.length;
 
-    
+    this.commentsLength = this.post.comments.length;
+
+
 
     this.activatedRoute.paramMap.subscribe((params) => {
       this.paramId = parseInt(params.get('id'))
@@ -36,8 +35,8 @@ export class ShowPostsComponent implements OnInit {
 
   handleComments(item: Posts): void {
     let id = item.id
-   
-this.router.navigate(['/comments', id])
+
+    this.router.navigate(['/comments', id])
   }
 
   deletePost(item): void {
@@ -45,7 +44,7 @@ this.router.navigate(['/comments', id])
       () => {
         this.blogService.getBlogPosts(this.paramId);
       },
-      (err) => {console.log(err)}
+      (err) => { console.log(err) }
     )
   }
 
@@ -53,16 +52,16 @@ this.router.navigate(['/comments', id])
     this.edit = true;
   }
 
-updatePost(title, content, post: Posts): void {
-  post.title = title.value;
-  post.content = content.value;
+  updatePost(title, content, post: Posts): void {
+    post.title = title.value;
+    post.content = content.value;
 
-  this.service.updatePosts(post).subscribe(
-    (data: Posts) => {
-      console.log(data)
-      this.blogService.getBlogPosts(this.paramId)
-    },
-    (err) => {console.log(err)}
-  )
-}
+    this.service.updatePosts(post).subscribe(
+      (data: Posts) => {
+        console.log(data)
+        this.blogService.getBlogPosts(this.paramId)
+      },
+      (err) => { console.log(err) }
+    )
+  }
 }

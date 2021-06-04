@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
 import { Blog } from 'src/app/models/Blog';
 import { Posts } from 'src/app/models/Posts';
 import { BlogService } from 'src/app/services/blog/blog.service';
@@ -25,14 +24,7 @@ export class PostsComponent implements OnInit {
       this.paramId = parseInt(params.get('id'))
     })
 
-  //   this.service.getBlogPosts(this.paramId).subscribe((data: Blog) => {
-  //   this.blog = data;
-
-    
-  // })
- 
-
-  this.service.blog$.subscribe((data: Blog) => { this.blog = data})
+    this.service.blog$.subscribe((data: Blog) => { this.blog = data })
     this.service.getBlogPosts(this.paramId);
 
   }

@@ -18,36 +18,25 @@ export class BlogService {
 
   getBlogs(): void {
     this.http.get<Blog[]>('https://mi-blogs.azurewebsites.net/api/Blogs/user/1547')
-    .subscribe((data: Blog[]) => {this.blogs.next(data)})
+      .subscribe((data: Blog[]) => { this.blogs.next(data) })
   }
 
-  addBlogs(blog: Blog): Observable<Blog>{
+  addBlogs(blog: Blog): Observable<Blog> {
     return this.http.post<Blog>('https://mi-blogs.azurewebsites.net/api/Blogs', blog, {
       headers: new HttpHeaders({
         'Content-Type': 'application/json'
       })
-    })    
+    })
   }
 
   updateBlog(blog: Blog): Observable<Blog> {
     return this.http.put<Blog>('https://mi-blogs.azurewebsites.net/api/Blogs/' + blog.id, blog)
   }
 
-  
-  // getBlogPosts(paramId: number): Observable<Blog> {
-  //   return this.http.get<Blog>("https://mi-blogs.azurewebsites.net/api/Blogs/" + paramId)
-  
-  // }
-
   getBlogPosts(paramId: number): void {
     this.http.get<Blog>("https://mi-blogs.azurewebsites.net/api/Blogs/" + paramId)
-    .subscribe((data: Blog) => {this.blog.next(data)})
+      .subscribe((data: Blog) => { this.blog.next(data) })
   }
-
-  // void {
-  //   this.http.get<Blog[]>('https://mi-blogs.azurewebsites.net/api/Blogs/user/1547')
-  //   .subscribe((data: Blog[]) => {this.blogs.next(data)})
-  // }
 
   deleteBlog(id: number): Observable<void> {
     return this.http.delete<void>('https://mi-blogs.azurewebsites.net/api/Blogs/' + id)

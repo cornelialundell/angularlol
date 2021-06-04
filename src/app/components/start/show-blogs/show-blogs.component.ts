@@ -21,9 +21,9 @@ export class ShowBlogsComponent implements OnInit {
   
   }
 
-  handleDelete(item): void {
+  handleDelete(item: Blog): void {
     this.service.deleteBlog(item.id).subscribe(
-      () => {console.log(`Employee with this ID = ${item.id} is deleted`)
+      () => {console.log(`Blog with this ID = ${item.id} is deleted`)
       this.service.getBlogs();},
     (err) => { console.log(err)}
     )
@@ -41,10 +41,6 @@ export class ShowBlogsComponent implements OnInit {
     this.router.navigate(['edit/', id])
   }
 
-
-  
-
-  
 
 }
 

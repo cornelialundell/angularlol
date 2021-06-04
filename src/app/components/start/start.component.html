@@ -1,5 +1,4 @@
 <div class="start-container">
-
   <h3>Dina bloggar</h3>
   <button (click)="showCreate = !showCreate" class="show-create-btn">
     {{ showCreate ? "Stäng" : "Skapa ny blogg" }}
@@ -10,14 +9,14 @@
 
   <div class="blog-container" *ngIf="isHome()">
     <app-show-blogs
-    (editBlog)="findEdit($event)"
+      (editBlog)="findEdit($event)"
       *ngFor="let b of blogs"
       [blog]="b"
       class="blog"
     ></app-show-blogs>
   </div>
-  
+
   <div class="edit-container" *ngIf="isEdit()">
     <app-edit [blogs]="blogs"></app-edit>
-
+  </div>
 </div>

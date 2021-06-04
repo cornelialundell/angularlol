@@ -8,7 +8,7 @@ import { BlogService } from 'src/app/services/blog/blog.service';
   templateUrl: './start.component.html',
   styleUrls: ['./start.component.scss']
 })
-export class StartComponent implements OnInit{
+export class StartComponent implements OnInit {
   showCreate: boolean;
   paramId: number = 0
   blogs: Blog[] = []
@@ -17,9 +17,9 @@ export class StartComponent implements OnInit{
     private activatedRoute: ActivatedRoute) { }
 
   ngOnInit(): void {
-    this.service.blogs$.subscribe((data: Blog[]) => { this.blogs = data})
-    this.service.getBlogs();  
-    
+    this.service.blogs$.subscribe((data: Blog[]) => { this.blogs = data })
+    this.service.getBlogs();
+
     this.activatedRoute.paramMap.subscribe((params) => {
       this.paramId = parseInt(params.get('id'))
     })
@@ -34,7 +34,7 @@ export class StartComponent implements OnInit{
     return this.router.url === '/'
   }
 
-  findEdit(item: Blog): Blog{
+  findEdit(item: Blog): Blog {
     return item
   }
 

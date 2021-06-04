@@ -1,13 +1,19 @@
-<div *ngIf="blog"><a href="/">Start</a>
-<h2>Din blogg {{ blog.title }}</h2>
-
-<button (click)="showCreate = !showCreate">{{ showCreate ? 'Stäng' : 'Skriv inlägg'}}</button>
-<div *ngIf="showCreate">
-<app-create-post></app-create-post>
-</div>
 <div *ngIf="blog">
-<app-show-posts class="show-posts reverse" *ngFor="let p of blog.posts" [post]="p">
-    
-   
-</app-show-posts></div></div>
+  <a href="/">Start</a>
+  <h2>Din blogg {{ blog.title }}</h2>
 
+  <button (click)="showCreate = !showCreate">
+    {{ showCreate ? "Stäng" : "Skriv inlägg" }}
+  </button>
+  <div *ngIf="showCreate">
+    <app-create-post></app-create-post>
+  </div>
+  <div *ngIf="blog">
+    <app-show-posts
+      class="show-posts reverse"
+      *ngFor="let p of blog.posts"
+      [post]="p"
+    >
+    </app-show-posts>
+  </div>
+</div>

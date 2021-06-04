@@ -1,16 +1,17 @@
 <div *ngIf="!edit" class="post-container card">
-
-<h3>{{post.title}}</h3>
-<p class="content">{{post.content}}</p>
-<button (click)="deletePost(post)">Radera inlägg</button>
-<button (click)="handleEdit(post)">Edit inlägg</button>
-<p class="comments" (click)="handleComments(post)">{{ commentsLength }} Kommentarer</p>
+  <h3>{{ post.title }}</h3>
+  <p class="content">{{ post.content }}</p>
+  <button (click)="deletePost(post)">Radera inlägg</button>
+  <button (click)="handleEdit(post)">Ändra inlägg</button>
+  <p class="comments" (click)="handleComments(post)">
+    {{ commentsLength }} Kommentarer
+  </p>
 </div>
 
 <div *ngIf="edit" class="post-container card">
-    <form (ngSubmit)="updatePost(title, content, post)">
-        <input type="text" value="{{post.title}}" #title>
-        <textarea value="{{post.content}}" #content></textarea>
-        <button>Save</button>
-    </form>
+  <form (ngSubmit)="updatePost(title, content, post)">
+    <input type="text" value="{{ post.title }}" #title />
+    <textarea value="{{ post.content }}" #content></textarea>
+    <button>Save</button>
+  </form>
 </div>

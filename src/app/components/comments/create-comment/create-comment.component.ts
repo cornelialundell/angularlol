@@ -34,23 +34,23 @@ export class CreateCommentComponent implements OnInit {
     newComment.content = content.value
     newComment.postId = this.paramId
     console.log(content.value)
-    
+
     content.value = '';
 
     this.service.addComment(newComment).subscribe(
       (data: Comment) => {
         console.log(data)
         this.PostService.getPosts(this.paramId)
-       
+
       }
     ),
-    (error: any) => {console.log(error)}
+      (error: any) => { console.log(error) }
 
-  
-  
-   
-   
-  
+
+
+
+
+
   }
 
 }

@@ -22,14 +22,7 @@ export class CommentsComponent implements OnInit {
       this.paramId = parseInt(params.get('id'))
     })
 
-
-    // this.service.getPosts(this.paramId).subscribe((data: Posts) => {
-    //   this.post = data;
-  
-      
-    // })
-
-    this.service.post$.subscribe((data: Posts) => { this.post = data})
+    this.service.post$.subscribe((data: Posts) => { this.post = data })
     this.service.getPosts(this.paramId);
 
   }

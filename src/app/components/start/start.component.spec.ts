@@ -24,7 +24,7 @@ describe('StartComponent', () => {
     expect(component).toBeTruthy();
   });
 
-  it('should toggle showCreate', () => {
+  it('should show stäng when click create button', () => {
     fixture = TestBed.createComponent(StartComponent);
     fixture.nativeElement.querySelector('.show-create-btn').click()
     fixture.detectChanges();
